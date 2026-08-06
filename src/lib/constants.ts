@@ -5,6 +5,7 @@ export const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Why PalmTec", href: "#why-palmtec" },
   { label: "How it works", href: "#how-it-works" },
+  { label: "Blog", href: "/blog" },
 ] as const;
 
 export type Platform = {
