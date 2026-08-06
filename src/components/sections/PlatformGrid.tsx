@@ -33,9 +33,12 @@ export default function PlatformGrid() {
           {PLATFORMS.map((platform, i) => (
             <Reveal key={platform.name} delayMs={i * 80} className={GRID_POSITION[i]}>
               <Card tone={platform.featured ? "dark" : "paper"} className="flex h-full flex-col justify-center">
-                <p className={`eyebrow mb-3 ${platform.featured ? "text-gold" : "text-gold-ink"}`}>
-                  {platform.eyebrow}
-                </p>
+                <div className="mb-5 flex items-center gap-3">
+                  <span className={`flex h-10 w-10 items-center justify-center rounded-xl font-bold ${platform.featured ? "bg-paper/10 text-gold" : "bg-cream-tint text-gold-ink"}`}>
+                    {platform.mark}
+                  </span>
+                  <p className={`eyebrow ${platform.featured ? "text-gold" : "text-gold-ink"}`}>{platform.eyebrow}</p>
+                </div>
                 <h3
                   className={`font-serif text-xl font-medium leading-snug sm:text-2xl ${
                     platform.featured ? "text-paper" : "text-ink"
