@@ -4,17 +4,12 @@
 export const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Why PalmTec", href: "#why-palmtec" },
-  { label: "How it works", href: "#audit" },
+  { label: "How it works", href: "#how-it-works" },
 ] as const;
-
-// Single control point for the founder photo. `null` renders the labeled
-// placeholder (see components/ui/PlaceholderPhoto.tsx). Once the real photo
-// is available, drop it in /public/images/ and point this at that path —
-// no component code needs to change.
-export const FOUNDER_PHOTO_SRC: string | null = null;
 
 export type Platform = {
   name: string;
+  mark: string;
   eyebrow: string;
   headline: string;
   body: string;
@@ -24,6 +19,7 @@ export type Platform = {
 export const PLATFORMS: Platform[] = [
   {
     name: "Google",
+    mark: "G",
     eyebrow: "Google · capture active demand",
     headline: "Show up right when someone's ready to buy.",
     body: "You get put in front of people already searching for exactly what you sell, then sent to something built to turn that search into a call or a booked job.",
@@ -31,18 +27,21 @@ export const PLATFORMS: Platform[] = [
   },
   {
     name: "Meta",
+    mark: "∞",
     eyebrow: "Meta · create demand",
     headline: "Get noticed on a crowded scroll.",
     body: "Honest targeting and creative worth stopping for, so the businesses who'd actually hire you stop scrolling instead of tapping past.",
   },
   {
     name: "TikTok",
+    mark: "♪",
     eyebrow: "TikTok · enter discovery",
     headline: "Reach people while they're still discovering you.",
-    body: "Platform-native campaigns that don't announce themselves as ads, built for a place where people notice fast and move on faster.",
+    body: "Platform-native creative that earns attention, built for a place where people notice fast and move on faster.",
   },
   {
     name: "Reddit",
+    mark: "r/",
     eyebrow: "Reddit · join trusted conversations",
     headline: "Earn a seat where people compare notes.",
     body: "Show up credibly inside the communities your future customers already trust for recommendations.",

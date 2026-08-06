@@ -44,14 +44,23 @@
   --radius-card: 1rem;
   --radius-pill: 999px;
 
-  --font-serif: var(--font-playfair);
-  --font-sans: var(--font-inter);
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
 body {
   background: var(--cream);
   color: var(--ink);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--pine-950);
 }
 
 /* Small-caps-style eyebrow/caption treatment used for labels, photo
