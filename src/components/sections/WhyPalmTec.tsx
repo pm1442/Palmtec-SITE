@@ -40,7 +40,7 @@ export default function WhyPalmTec() {
               alt="Philip Miller, founder of PalmTec"
               width={1080}
               height={1451}
-              className="aspect-[4/3] w-full object-cover object-[50%_30%]"
+              className="aspect-[3/4] w-full object-cover object-top"
             />
             <figcaption className="px-6 py-4 sm:px-7">
               <p className="font-serif text-2xl leading-snug text-ink">Philip Miller</p>

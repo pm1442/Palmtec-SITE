@@ -2,9 +2,9 @@
 // arrays instead of hand-duplicating near-identical JSX blocks.
 
 export const NAV_LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "Why PalmTec", href: "#why-palmtec" },
-  { label: "How it works", href: "#how-it-works" },
+  { label: "Services", href: "/#services" },
+  { label: "Why PalmTec", href: "/#why-palmtec" },
+  { label: "How it works", href: "/#how-it-works" },
   { label: "Blog", href: "/blog" },
 ] as const;
 

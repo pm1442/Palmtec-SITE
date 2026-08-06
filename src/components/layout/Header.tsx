@@ -27,7 +27,7 @@ export default function Header() {
       }`}
     >
       <Container className="flex h-18 items-center justify-between py-4">
-        <Link href="#top" className="focus-gold flex items-center gap-2 text-lg font-serif font-medium tracking-tight">
+        <Link href="/#top" className="focus-gold flex items-center gap-2 text-lg font-serif font-medium tracking-tight">
           <Image src="/images/palmtec-mark.png" alt="" width={34} height={34} className="h-8 w-8 object-contain mix-blend-multiply" priority />
           <span>
             Palm<span className="text-gold-ink">Tec</span>
@@ -47,7 +47,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Button href="#audit">Get your free ad audit</Button>
+          <Button href="/#audit">Get your free ad audit</Button>
         </div>
 
         <button
@@ -93,7 +93,7 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Button href="#audit" className="mt-2 justify-center">
+            <Button href="/#audit" className="mt-2 justify-center">
               Get your free ad audit
             </Button>
           </Container>
