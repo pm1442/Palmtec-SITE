@@ -52,7 +52,8 @@ export default function AuditFormClient() {
         <p className="mt-2 text-sm leading-relaxed text-ink-muted">
           I&rsquo;ll personally look at what you sent and follow up at{" "}
           <span className="text-ink">{values.email}</span> with what I&rsquo;d
-          actually prioritize first. No script, no pressure.
+          actually prioritize first within one business day. No sales call unless
+          you want one.
         </p>
       </div>
     );
@@ -136,7 +137,7 @@ export default function AuditFormClient() {
         </button>
 
         <p className="text-center text-xs text-ink-muted">
-          No spam. No hard sell. Just useful answers.
+          You&rsquo;ll hear from Philip within one business day. No sales call unless you want one.
         </p>
       </form>
     </div>

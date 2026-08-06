@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import { NAV_LINKS } from "@/lib/constants";
@@ -26,8 +27,8 @@ export default function Header() {
       }`}
     >
       <Container className="flex h-18 items-center justify-between py-4">
-        <Link href="#top" className="focus-gold flex items-center gap-2 text-lg font-serif font-medium">
-          <span aria-hidden="true">🌴</span>
+        <Link href="#top" className="focus-gold flex items-center gap-2 text-lg font-serif font-medium tracking-tight">
+          <Image src="/images/palmtec-mark.png" alt="" width={34} height={34} className="h-8 w-8 object-contain mix-blend-multiply" priority />
           <span>
             Palm<span className="text-gold-ink">Tec</span>
           </span>

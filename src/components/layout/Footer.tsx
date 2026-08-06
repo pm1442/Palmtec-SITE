@@ -1,12 +1,13 @@
 import Container from "@/components/ui/Container";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="border-t border-ink/10 bg-cream">
       <Container className="grid gap-10 py-16 md:grid-cols-2">
         <div>
-          <p className="flex items-center gap-2 font-serif text-lg font-medium">
-            <span aria-hidden="true">🌴</span>
+          <p className="flex items-center gap-2 font-serif text-lg font-medium tracking-tight">
+            <Image src="/images/palmtec-mark.png" alt="" width={34} height={34} className="h-8 w-8 object-contain mix-blend-multiply" />
             <span>
               Palm<span className="text-gold-ink">Tec</span>
             </span>

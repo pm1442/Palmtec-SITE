@@ -13,7 +13,7 @@ export default function Hero() {
       <Container className="grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-[1.12fr_0.88fr] lg:gap-20">
         <div>
           <p className="eyebrow mb-5 text-gold">Paid ads, without the agency fog</p>
-          <h1 className="font-serif text-4xl font-medium leading-[1.1] tracking-tight text-paper sm:text-5xl lg:text-[3.25rem]">
+          <h1 className="font-serif text-[2rem] font-medium leading-[1.1] tracking-tight text-paper sm:text-5xl lg:text-[3.25rem]">
             You don&rsquo;t distrust ads. You distrust whoever says they&rsquo;re
             working.
           </h1>

@@ -19,9 +19,10 @@ export default function AuditForm() {
             working, what&rsquo;s not, and what I&rsquo;d fix first. No script,
             no pressure. I read these myself.
           </p>
-          <ul className="mt-6 space-y-2">
-            <li className="eyebrow text-gold">Practical next steps</li>
-            <li className="eyebrow text-gold">No-pressure conversation</li>
+          <ul className="mt-6 space-y-2.5">
+            <li className="flex items-center gap-2 text-sm text-paper-muted"><span aria-hidden="true" className="text-gold">✓</span> Practical next steps, not a generic report</li>
+            <li className="flex items-center gap-2 text-sm text-paper-muted"><span aria-hidden="true" className="text-gold">✓</span> A personal reply within one business day</li>
+            <li className="flex items-center gap-2 text-sm text-paper-muted"><span aria-hidden="true" className="text-gold">✓</span> No sales call unless you want one</li>
           </ul>
         </Reveal>
 
