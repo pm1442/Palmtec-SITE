@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* PalmTec design tokens — Tailwind v4 CSS-first theme.                */
+/* Every color/radius/font used in components should trace back here.  */
+/* ------------------------------------------------------------------ */
+
+:root {
+  /* Dark section backgrounds (two close shades for section rhythm) */
+  --pine-900: #16241c;
+  --pine-950: #0e1d15;
+
+  /* Light section backgrounds */
+  --cream: #f3ede2;
+  --cream-tint: #eae2d3;
+
+  /* Gold accent + its interaction/contrast-safe variants */
+  --gold: #c99a3c;
+  --gold-hover: #b8862c;
+  /* Darkened gold for body-weight text on cream — #c99a3c on #f3ede2 fails
+     WCAG AA at normal text size; this variant clears 4.5:1. */
+  --gold-ink: #8f6a20;
+
+  /* Text colors */
+  --ink: #1b1712;
+  --ink-muted: #6b6355;
+  --paper: #f6f3ec;
+  --paper-muted: #cfcabc;
+}
+
+@theme inline {
+  --color-pine-900: var(--pine-900);
+  --color-pine-950: var(--pine-950);
+  --color-cream: var(--cream);
+  --color-cream-tint: var(--cream-tint);
+  --color-gold: var(--gold);
+  --color-gold-hover: var(--gold-hover);
+  --color-gold-ink: var(--gold-ink);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-paper: var(--paper);
+  --color-paper-muted: var(--paper-muted);
+
+  --radius-card: 1rem;
+  --radius-pill: 999px;
+
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Small-caps-style eyebrow/caption treatment used for labels, photo
+   captions, and footer attribution. Implemented as tracked uppercase
+   text rather than real font-variant small-caps, since small-caps
+   OpenType support varies by font and weight. */
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Shared focus treatment: visible on both dark and cream backgrounds. */
+.focus-gold {
+  outline: none;
+}
+.focus-gold:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Scroll-reveal primitive — see src/lib/useInView.ts. Respects
+   prefers-reduced-motion so the effect never fights user settings. */
+.reveal {
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
