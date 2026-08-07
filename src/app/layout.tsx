@@ -58,7 +58,7 @@ const structuredData = [
   },
 ];
 
-const GOOGLE_ADS_TAG_ID = "AW-16470119185";
+const GOOGLE_ADS_TAG_ID = "AW-18376635504";
 
 export default function RootLayout({
   children,
