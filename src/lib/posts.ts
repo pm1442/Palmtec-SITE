@@ -9,6 +9,8 @@ export type Post = {
   description: string;
   date: string;
   draft: boolean;
+  image?: string;
+  imageAlt?: string;
   content: string;
 };
 
@@ -43,6 +45,8 @@ function parseFrontmatter(file: string): { frontmatter: Frontmatter; content: st
       description: values.description,
       date: values.date,
       draft: values.draft === "true",
+      image: values.image || undefined,
+      imageAlt: values.imageAlt || undefined,
     },
     content: match[2].trim(),
   };

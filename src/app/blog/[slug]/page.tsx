@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import MarkdownContent from "@/components/blog/MarkdownContent";
@@ -27,6 +28,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       description: post.description,
       url: `/blog/${post.slug}`,
       publishedTime: `${post.date}T12:00:00Z`,
+      images: post.image ? [{ url: post.image, alt: post.imageAlt || post.title }] : undefined,
     },
   };
 }
@@ -46,6 +48,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     dateModified: `${post.date}T12:00:00Z`,
     author: { "@type": "Person", name: "Philip Miller" },
     publisher: { "@id": `${SITE_URL}/#organization`, name: SITE_NAME },
+    image: post.image ? `${SITE_URL}${post.image}` : undefined,
   };
 
   return (
@@ -57,6 +60,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <p className="eyebrow mt-10 text-gold-ink">{formatPostDate(post.date)}</p>
           <h1 className="mt-3 font-serif text-4xl font-medium leading-tight tracking-tight text-ink sm:text-5xl">{post.title}</h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted">{post.description}</p>
+          {post.image ? <figure className="mt-10 overflow-hidden rounded-card border border-ink/10 bg-cream-tint"><Image src={post.image} alt={post.imageAlt || post.title} width={1600} height={900} className="h-auto w-full" priority /></figure> : null}
           <div className="mt-12 border-t border-ink/10 pt-10"><MarkdownContent content={post.content} /></div>
           <div className="mt-14 rounded-card bg-pine-900 p-7 sm:p-8">
             <p className="font-serif text-2xl text-paper">Want a straight answer about your ads?</p>

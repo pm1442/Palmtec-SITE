@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import { formatPostDate, getAllPosts } from "@/lib/posts";
@@ -29,11 +30,14 @@ export default function BlogIndex() {
         {posts.length ? (
           <div className="mt-14 grid gap-5 md:grid-cols-2">
             {posts.map((post) => (
-              <article key={post.slug} className="rounded-card border border-ink/10 bg-white p-7 shadow-[0_1px_2px_rgba(27,23,18,0.06)] transition-transform hover:-translate-y-0.5 sm:p-8">
-                <p className="eyebrow text-gold-ink">{formatPostDate(post.date)}</p>
-                <h2 className="mt-4 font-serif text-2xl leading-snug text-ink"><Link href={`/blog/${post.slug}`} className="focus-gold hover:text-gold-ink">{post.title}</Link></h2>
-                <p className="mt-3 leading-relaxed text-ink-muted">{post.description}</p>
-                <Link href={`/blog/${post.slug}`} className="focus-gold mt-6 inline-flex text-sm font-semibold text-ink underline decoration-gold underline-offset-4 hover:text-gold-ink">Read article</Link>
+              <article key={post.slug} className="overflow-hidden rounded-card border border-ink/10 bg-white shadow-[0_1px_2px_rgba(27,23,18,0.06)] transition-transform hover:-translate-y-0.5">
+                {post.image ? <Link href={`/blog/${post.slug}`} className="focus-gold block aspect-[16/9] overflow-hidden bg-cream-tint"><Image src={post.image} alt={post.imageAlt || ""} width={1600} height={900} className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.03]" /></Link> : null}
+                <div className="p-7 sm:p-8">
+                  <p className="eyebrow text-gold-ink">{formatPostDate(post.date)}</p>
+                  <h2 className="mt-4 font-serif text-2xl leading-snug text-ink"><Link href={`/blog/${post.slug}`} className="focus-gold hover:text-gold-ink">{post.title}</Link></h2>
+                  <p className="mt-3 leading-relaxed text-ink-muted">{post.description}</p>
+                  <Link href={`/blog/${post.slug}`} className="focus-gold mt-6 inline-flex text-sm font-semibold text-ink underline decoration-gold underline-offset-4 hover:text-gold-ink">Read article</Link>
+                </div>
               </article>
             ))}
           </div>
