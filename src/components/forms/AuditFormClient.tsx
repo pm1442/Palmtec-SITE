@@ -57,8 +57,8 @@ export default function AuditFormClient() {
         body: JSON.stringify(values),
       });
       if (!response.ok) throw new Error("Submission failed");
-reportGoogleAdsConversion();
-setSubmitted(true);
+      reportGoogleAdsConversion();
+      setSubmitted(true);
     } catch {
       setSubmitError("Something went wrong while sending your request. Please try again, or email support@palmtec.biz.");
     } finally {
