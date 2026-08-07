@@ -44,7 +44,6 @@ const structuredData = [
     description: SITE_DESCRIPTION,
     founder: { "@type": "Person", name: "Philip Miller" },
     areaServed: { "@type": "Country", name: "United States" },
-    address: { "@type": "PostalAddress", addressLocality: "Cave City", addressRegion: "AR", addressCountry: "US" },
     knowsAbout: ["Google Ads management", "PPC advertising", "Meta advertising"],
   },
   {
