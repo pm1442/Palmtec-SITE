@@ -6,6 +6,12 @@ import FormField from "@/components/ui/FormField";
 import { ADVERTISING_OPTIONS } from "@/lib/constants";
 import { validateAuditForm, type AuditFormErrors, type AuditFormValues } from "@/lib/validation";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 const INITIAL_VALUES: AuditFormValues = {
   name: "",
   email: "",
@@ -14,6 +20,16 @@ const INITIAL_VALUES: AuditFormValues = {
 };
 
 const inputClasses = "focus-gold w-full rounded-lg border bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-muted/60";
+
+const GOOGLE_ADS_CONVERSION = "AW-18376635504/OAN6CKOs6d0cEPDo1LpE";
+
+function reportGoogleAdsConversion() {
+  window.gtag?.("event", "conversion", {
+    send_to: GOOGLE_ADS_CONVERSION,
+    value: 1.0,
+    currency: "USD",
+  });
+}
 
 export default function AuditFormClient() {
   const [values, setValues] = useState<AuditFormValues>(INITIAL_VALUES);
@@ -41,7 +57,8 @@ export default function AuditFormClient() {
         body: JSON.stringify(values),
       });
       if (!response.ok) throw new Error("Submission failed");
-      setSubmitted(true);
+reportGoogleAdsConversion();
+setSubmitted(true);
     } catch {
       setSubmitError("Something went wrong while sending your request. Please try again, or email support@palmtec.biz.");
     } finally {
