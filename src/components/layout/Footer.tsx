@@ -34,7 +34,7 @@ export default function Footer() {
             </a>
           </p>
           <p className="mt-1 text-sm text-ink-muted">
-            Cave City, Arkansas · Serving businesses nationwide
+            Serving businesses nationwide
           </p>
         </div>
       </Container>
