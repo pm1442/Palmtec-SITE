@@ -1,13 +1,61 @@
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import { jsonLd } from "@/lib/structured-data";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PalmTec: paid ad management run by someone who'll tell you the truth",
-  description:
-    "PalmTec runs your Google, Meta, TikTok, and Reddit ads. One person, not a rotating team, tells you why they're working. Get a free ad opportunity audit.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Google Ads Management for Small Businesses | PalmTec",
+    template: "%s | PalmTec",
+  },
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: "Google Ads Management for Small Businesses | PalmTec",
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Google Ads Management for Small Businesses | PalmTec",
+    description: SITE_DESCRIPTION,
+  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 };
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    legalName: "PalmTec LLC",
+    url: SITE_URL,
+    logo: `${SITE_URL}/images/palmtec-mark.png`,
+    image: `${SITE_URL}/images/philip-miller.png`,
+    email: "support@palmtec.biz",
+    description: SITE_DESCRIPTION,
+    founder: { "@type": "Person", name: "Philip Miller" },
+    areaServed: { "@type": "Country", name: "United States" },
+    address: { "@type": "PostalAddress", addressLocality: "Cave City", addressRegion: "AR", addressCountry: "US" },
+    knowsAbout: ["Google Ads management", "PPC advertising", "Meta advertising"],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    inLanguage: "en-US",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  },
+];
 
 export default function RootLayout({
   children,
@@ -15,6 +63,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col bg-cream text-ink antialiased">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

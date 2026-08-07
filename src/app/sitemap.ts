@@ -1,0 +1,18 @@
+import type { MetadataRoute } from "next";
+import { getAllPosts } from "@/lib/posts";
+import { SITE_URL } from "@/lib/site";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const staticPages: MetadataRoute.Sitemap = [
+    { url: SITE_URL, changeFrequency: "weekly", priority: 1 },
+    { url: `${SITE_URL}/blog`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${SITE_URL}/privacy`, changeFrequency: "yearly", priority: 0.2 },
+  ];
+  const posts = getAllPosts().map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: new Date(`${post.date}T12:00:00Z`),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+  return [...staticPages, ...posts];
+}

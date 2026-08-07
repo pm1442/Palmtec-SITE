@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import MarkdownContent from "@/components/blog/MarkdownContent";
 import Container from "@/components/ui/Container";
 import { formatPostDate, getAllPosts, getPostBySlug } from "@/lib/posts";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { jsonLd } from "@/lib/structured-data";
 
 type BlogPostPageProps = { params: Promise<{ slug: string }> };
 
@@ -15,7 +17,18 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
-  return { title: `${post.title} | PalmTec`, description: post.description };
+  return {
+    title: post.title,
+    description: post.description,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.description,
+      url: `/blog/${post.slug}`,
+      publishedTime: `${post.date}T12:00:00Z`,
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -23,8 +36,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+    headline: post.title,
+    description: post.description,
+    datePublished: `${post.date}T12:00:00Z`,
+    dateModified: `${post.date}T12:00:00Z`,
+    author: { "@type": "Person", name: "Philip Miller" },
+    publisher: { "@id": `${SITE_URL}/#organization`, name: SITE_NAME },
+  };
+
   return (
     <article className="bg-cream">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }} />
       <Container className="py-16 sm:py-24">
         <div className="mx-auto max-w-3xl">
           <Link href="/blog" className="focus-gold text-sm font-semibold text-ink-muted underline decoration-gold underline-offset-4 hover:text-ink">← Back to blog</Link>

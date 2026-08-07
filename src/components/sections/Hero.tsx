@@ -18,9 +18,9 @@ export default function Hero() {
             working.
           </h1>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-paper-muted sm:text-lg">
-            PalmTec runs Google, Facebook, Instagram, TikTok, and Reddit ads
-            for small businesses. You get one accountable person, clear numbers,
-            and an honest answer when something isn&rsquo;t working.
+            PalmTec provides Google Ads management for small businesses, plus
+            Facebook, Instagram, TikTok, and Reddit ads. You get one accountable
+            person, clear numbers, and an honest answer when something isn&rsquo;t working.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Button href="#audit">Get your free ad audit</Button>

@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -20,6 +21,9 @@ export default function Footer() {
             © {new Date().getFullYear()} PalmTec LLC. When details matter, don&rsquo;t
             settle for less.
           </p>
+          <Link href="/privacy" className="focus-gold mt-2 inline-flex text-xs text-ink-muted underline underline-offset-4 hover:text-ink">
+            Privacy
+          </Link>
         </div>
 
         <div className="md:text-right">

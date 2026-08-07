@@ -1,10 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import { formatPostDate, getAllPosts } from "@/lib/posts";
 
-export const metadata = {
-  title: "PalmTec Blog | Straight answers about paid ads",
-  description: "Practical notes on paid ads, lead quality, and making marketing decisions with clearer numbers.",
+export const metadata: Metadata = {
+  title: "Paid Ads Insights for Small Businesses",
+  description: "Practical insights on Google Ads management and paid advertising for small businesses from PalmTec.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Paid Ads Insights for Small Businesses | PalmTec",
+    description: "Practical insights on Google Ads management and paid advertising for small businesses from PalmTec.",
+    url: "/blog",
+  },
 };
 
 export default function BlogIndex() {
