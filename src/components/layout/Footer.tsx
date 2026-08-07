@@ -21,9 +21,10 @@ export default function Footer() {
             © {new Date().getFullYear()} PalmTec LLC. When details matter, don&rsquo;t
             settle for less.
           </p>
-          <Link href="/privacy" className="focus-gold mt-2 inline-flex text-xs text-ink-muted underline underline-offset-4 hover:text-ink">
-            Privacy
-          </Link>
+          <div className="mt-2 flex gap-4 text-xs text-ink-muted">
+            <Link href="/privacy" className="focus-gold underline underline-offset-4 hover:text-ink">Privacy</Link>
+            <Link href="/terms" className="focus-gold underline underline-offset-4 hover:text-ink">Terms</Link>
+          </div>
         </div>
 
         <div className="md:text-right">

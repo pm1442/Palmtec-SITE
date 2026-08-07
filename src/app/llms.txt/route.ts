@@ -25,6 +25,7 @@ PalmTec is a U.S.-based paid advertising service founded by Philip Miller. It he
 - [Home](${SITE_URL}/)
 - [Blog](${SITE_URL}/blog)
 - [Privacy](${SITE_URL}/privacy)
+- [Terms of Use](${SITE_URL}/terms)
 
 ## Published articles
 

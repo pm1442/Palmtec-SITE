@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
 import FormField from "@/components/ui/FormField";
 import { ADVERTISING_OPTIONS } from "@/lib/constants";
 import { validateAuditForm, type AuditFormErrors, type AuditFormValues } from "@/lib/validation";
@@ -93,7 +94,7 @@ export default function AuditFormClient() {
         </button>
 
         {submitError && <p role="alert" className="text-center text-sm text-red-700">{submitError}</p>}
-        <p className="text-center text-xs text-ink-muted">You&rsquo;ll hear from Philip within one business day. No sales call unless you want one.</p>
+        <p className="text-center text-xs leading-relaxed text-ink-muted">You&rsquo;ll hear from Philip within one business day. No sales call unless you want one. By submitting, you agree to our <Link href="/privacy" className="underline underline-offset-2 hover:text-ink">Privacy Notice</Link> and <Link href="/terms" className="underline underline-offset-2 hover:text-ink">Terms of Use</Link>, and may receive relevant follow-up about your request. You can unsubscribe from marketing emails anytime.</p>
       </form>
     </div>
   );
