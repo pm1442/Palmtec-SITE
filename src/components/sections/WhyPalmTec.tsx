@@ -44,7 +44,7 @@ export default function WhyPalmTec() {
             />
             <figcaption className="px-6 py-4 sm:px-7">
               <p className="font-serif text-2xl leading-snug text-ink">Philip Miller</p>
-              <p className="eyebrow mt-1 text-ink-muted">Founder, PalmTec · Cave City, Arkansas</p>
+              <p className="eyebrow mt-1 text-ink-muted">Founder, PalmTec</p>
             </figcaption>
           </figure>
 
